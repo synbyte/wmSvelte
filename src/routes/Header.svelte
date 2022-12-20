@@ -18,11 +18,11 @@
 	
 </header>
 
-<style>
+<style lang="">
 	header {
 		display: flex;
 		justify-content: space-between;
-		
+		background: #0071ce;
 	}
 
 
