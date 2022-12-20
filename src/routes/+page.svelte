@@ -1,5 +1,7 @@
 <script>
 import Header from "./Header.svelte";
+import List from "./List.svelte";
+import Total from "./Total.svelte";
 </script>
 
 <section>
@@ -10,11 +12,18 @@ import Header from "./Header.svelte";
         id="blogo"
         src="https://i.ibb.co/vLHzdzM/pngfind-com-walmart-logo-png-572731.png"
       />
-      <p>360-258-2654</p>
+      <p>360-258-2654 Mgr:TROY</p>
       <p>ST# 05461 OP# 001776 TE# 67 TR# 04809</p>
+      
 </div>
 </section>
-<style>
+<section>
+  <List  />
+  <Total />
+</section>
+<style lang='scss'>
+  @import './styles.scss';
+
 section {
 	display:flex;
 	flex-direction:column;
@@ -25,17 +34,13 @@ section {
   display:flex;
   margin:auto;
 }
-.row {
-
-}
-.container {
-  font-family: "Courier Prime", monospace;
-  font-size:0.9em;
-  text-align: center;
- 
-}
 p {
-  font-weight: 600;
+  font-weight:600;
 }
+
+.container {
+  width:85vw;
+}
+
 
 </style>
