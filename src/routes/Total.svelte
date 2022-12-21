@@ -30,6 +30,13 @@
 	
 	<button on:click={toggleHide}>show</button>
 </div>
+<div style="text-align:center;" class="container flex mx-auto">
+<p style="font-size:2em;"># ITEMS SOLD 1</p>
+<p>#TC 4736 4859 0048 1259</p>
+<img style="width:80vw; height:100px;" src="https://thumbs.dreamstime.com/b/barcode-vector-icon-bar-code-web-barcode-vector-icon-bar-code-web-white-background-169690153.jpg"/>
+<p>Low Prices You Can Trust Every Day!</p>
+<p> 12/21/22  10:27:15</p>
+</div>
 {#if visible}
 <div class="dialog shadow-md bg-red-200 "> <input bind:value={name} type="text">
 	<input bind:value={upc} type="number">

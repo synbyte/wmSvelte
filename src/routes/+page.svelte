@@ -6,7 +6,7 @@ import Dialog from "./Dialog.svelte";
 </script>
 
 <section>
-
+<Header />
 <div class="container text-center mx-auto px-3 ">
 <img class="pt-10 pb-4"
         id="blogo"
