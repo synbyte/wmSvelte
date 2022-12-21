@@ -35,7 +35,7 @@ import { select_multiple_value } from 'svelte/internal';
         <div class="total  flex mx-auto justify-end">
             <ul class="subtotal ">
                 <p>SUBTOTAL {subtotal}</p>
-                <p>TAX 0.15% {tax}</p>
+                <p>TAX 0.15% {tax.toFixed(2)}</p>
                 <p>TOTAL {total}</p>
                 <p>WMP VISA TEND {total}</p>
             </ul>

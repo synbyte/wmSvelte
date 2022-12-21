@@ -1,9 +1,20 @@
 <script>
+	
+	
 	import { items } from './store.js';
-	function total() {}
+	export let visible = false;
+	export let upc;
+	export let price;
+	export let name;
+	export const toggleHide = () => {
+        visible = !visible
+    }
+	export function addItem() {
+        items.update(item => [...item,{name,upc,price}])
+    }
 </script>
 
-<div class="container">
+<div  class="container">
 	<p>WALMART PAY</p>
 	<p>ACCOUNT # XXXX XXXX XXXX 4389</p>
 	<p>XREF #: 0237877261</p>
@@ -16,13 +27,39 @@
 	<p>* NO SIGNATURE REQUIRED</p>
 
 	<p>TERMINAL # SC0169278</p>
+	
+	<button on:click={toggleHide}>show</button>
 </div>
-
+{#if visible}
+<div class="dialog shadow-md bg-red-200 "> <input bind:value={name} type="text">
+	<input bind:value={upc} type="number">
+	<input bind:value={price} type="number">
+	<button on:click={addItem}>add</button></div>
+	{/if}
+	{#if !visible}
+	<div class="g"></div>
+	{/if}
 <style lang="scss">
 	@import './styles.scss';
 	p {
 		font-weight: 600;
 		display: block;
+	}
+	.g {
+		display:none;
+	}
+	input {
+		border:1px solid black;
+	}
+	.dialog {
+		position:absolute;
+		top:0;
+		width:100%;
+		
+		border:1px solid black;
+		border-radius: 15px;
+
+		
 	}
 	.container {
 		width: 80vw;

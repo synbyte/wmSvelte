@@ -2,10 +2,10 @@
 import Header from "./Header.svelte";
 import List from "./List.svelte";
 import Total from "./Total.svelte";
+import Dialog from "./Dialog.svelte";
 </script>
 
 <section>
-<Header />
 
 <div class="container text-center mx-auto px-3 ">
 <img class="pt-10 pb-4"
@@ -20,6 +20,7 @@ import Total from "./Total.svelte";
 <section>
   <List  />
   <Total />
+  
 </section>
 <style lang='scss'>
   @import './styles.scss';

@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import logo from '$lib/images/svelte-logo.svg';
 	import github from '$lib/images/github.svg';
+	import toggleHide from './Dialog.svelte';
 </script>
 
 <header class="bg-blue-600  py-2 px-2">
@@ -9,6 +10,7 @@
 	
 		<a href="https://kit.svelte.dev">
 		<div id="chevron">‹ Reciept Details</div>	
+		
 	</div>
 
 	<nav>
