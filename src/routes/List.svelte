@@ -1,6 +1,11 @@
 <script>
-    import {items} from './store';
-   
+import { select_multiple_value } from 'svelte/internal';
+
+    import {items, t} from './store';
+    $: subtotal = $items.reduce((sum, item) => sum += item.price, 0)
+    $: tax = subtotal * 0.15
+    $: total = subtotal + tax
+
 </script>
 <div class="container mx-auto ">
     <div class="row flex mx-auto">
@@ -18,12 +23,26 @@
         </ul>
         <ul class="price">
             {#each $items as item}
-            <p>{item.price} X</p>
+            
+            <p>{item.price}</p>
             {/each}
         </ul>
+        
+        
     </div>
-    
-</div>
+    </div>
+    <div class="container ">
+        <div class="total  flex mx-auto justify-end">
+            <ul class="subtotal ">
+                <p>SUBTOTAL {subtotal}</p>
+                <p>TAX 0.15% {tax}</p>
+                <p>TOTAL {total}</p>
+                <p>WMP VISA TEND {total}</p>
+            </ul>
+            
+
+        </div>
+    </div>
 <style lang='scss'>
 
     @import './styles.scss';
@@ -34,16 +53,29 @@
     
     text-align: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     width:100vw;
 }
+.subtotal {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: end;
+
+}
+.total {
+    width:80vmin;
+    display:flex;
+
+}
 .row {
-    width:80vw;
+    width:80vmin;
     display:flex;
     justify-content: space-between;
 }
 ul {
     text-align: start;
 }
+
 </style>

@@ -16,4 +16,4 @@ export let items = writable([
         upc:"00897686432", 
         price:21.97}
 ])
-export let t = 0;
+export let t = writable(0);
