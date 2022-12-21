@@ -1,31 +1,10 @@
 @import '@fontsource/fira-mono';
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300&family=Courier+Prime&display=swap');
-$wm-blue: #0071ce;
+$wm-blue: #00498d;
 :root {
 	font-family: 'Courier Prime', monospace;
 	
-}
-
-body {
-	
-	min-height: 100vh;
-	margin: 0;
-	background-attachment: fixed;
-	background-color: var(--color-bg-1);
-	background-size: 100vw 100vh;
-	background-image: radial-gradient(
-			50% 50% at 50% 50%,
-			rgba(255, 255, 255, 0.75) 0%,
-			rgba(255, 255, 255, 0) 100%
-		),
-		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
-}
-header {
-	color:white;
-}
-.container {
-	text-align: center;
 }
 p {
 	
@@ -41,7 +20,7 @@ p {
 }
 
 p {
-	line-height: 1.5;
+	line-height: 1.6;
 }
 
 a {

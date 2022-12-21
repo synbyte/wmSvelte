@@ -7,7 +7,7 @@ import Total from "./Total.svelte";
 <section>
 <Header />
 
-<div class="container mx-auto px-3 ">
+<div class="container text-center mx-auto px-3 ">
 <img class="pt-10 pb-4"
         id="blogo"
         src="https://i.ibb.co/vLHzdzM/pngfind-com-walmart-logo-png-572731.png"
@@ -25,12 +25,13 @@ import Total from "./Total.svelte";
   @import './styles.scss';
 
 section {
+
 	display:flex;
 	flex-direction:column;
-
+width: 100vw;
 }
 #blogo {
-  width:80vw;
+  width:85vw;
   display:flex;
   margin:auto;
 }
@@ -39,7 +40,10 @@ p {
 }
 
 .container {
-  width:85vw;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width:100vw;
 }
 
 

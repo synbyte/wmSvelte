@@ -1,21 +1,9 @@
 <script>
     import {items} from './store';
-    export let itemz = [
-        { name:"ORBIT PINK S", 
-        upc:"08584100751", 
-        price:"29.92"},
-        
-        { name:"JU FLC HOODI", 
-        upc:"07461943024", 
-        price:"45.99"},
-        
-        { name:"MBM POTTERY", 
-        upc:"00897686432", 
-        price:"21.97"}
-    ]
+   
 </script>
-<div class="container">
-    <div class="row">
+<div class="container mx-auto ">
+    <div class="row flex mx-auto">
         <ul class="name">
             {#each $items as item }
             <p>{item.name}</p>
@@ -34,22 +22,28 @@
             {/each}
         </ul>
     </div>
+    
 </div>
 <style lang='scss'>
+
     @import './styles.scss';
     p{
         font-weight: 600;
     }
-.row {
-    width:85vw;
+.container {
+    
     text-align: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    width:100vw;
 }
-.container {
-    display: flex;
-    margin:auto;
-    justify-content: center;
+.row {
+    width:80vw;
+    display:flex;
+    justify-content: space-between;
+}
+ul {
+    text-align: start;
 }
 </style>

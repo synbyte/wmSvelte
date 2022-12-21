@@ -24,6 +24,9 @@
 		display: flex;
 		justify-content: space-between;
 		background:$wm-blue;
+		color:white;
+		font-weight:100;
+		font-size:1.1em;
 		font-family: 'Source Sans Pro', monoscpace;
 	}
 
