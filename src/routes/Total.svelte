@@ -1,12 +1,12 @@
 <script>
 	
-	
+	import Dialog from './Dialog.svelte'
 	import { items } from './store.js';
 	export let visible = false;
 	export let upc;
 	export let price;
 	export let name;
-	export const toggleHide = () => {
+	export function toggleHide()  {
         visible = !visible
     }
 	export function addItem() {
@@ -39,10 +39,11 @@
 <p> 12/21/22  10:27:15</p>
 </div>
 {#if visible}
-<div class="dialog shadow-md bg-red-200 "> <input bind:value={name} type="text">
+<Dialog />
+<!--<div class="dialog shadow-md bg-red-200 "> <input bind:value={name} type="text">
 	<input bind:value={upc} type="number">
 	<input bind:value={price} type="number">
-	<button on:click={addItem}>add</button></div>
+	<button on:click={addItem}>add</button></div>-->
 	{/if}
 	{#if !visible}
 	<div class="g"></div>
