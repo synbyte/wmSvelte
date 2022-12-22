@@ -12,6 +12,8 @@ import Dialog from "./Dialog.svelte";
         id="blogo"
         src="https://i.ibb.co/vLHzdzM/pngfind-com-walmart-logo-png-572731.png"
       />
+<p>WAL*MART</p>
+<p>VANCOUVER,WA</p>
       <p>360-258-2654 Mgr:TROY</p>
       <p>ST# 05461 OP# 001776 TE# 67 TR# 04809</p>
       

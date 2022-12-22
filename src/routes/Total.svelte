@@ -32,8 +32,9 @@
 </div>
 <div style="text-align:center;" class="container flex mx-auto">
 <p style="font-size:2em;"># ITEMS SOLD 1</p>
-<p>#TC 4736 4859 0048 1259</p>
-<img style="width:80vw; height:100px;" src="https://thumbs.dreamstime.com/b/barcode-vector-icon-bar-code-web-barcode-vector-icon-bar-code-web-white-background-169690153.jpg"/>
+<p style="font-size:1em;">#TC 4736 4859 0048 1259</p>
+<img class="pb-3" style="width:80vw; height:50px;" src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.pngkey.com%2Fpng%2Ffull%2F16-163338_barcode-without-numbers-png-clipart-black-and-white.png&sp=1671676488T8ae570b35378dea2437babfd0c98106d90b54889edaae0cc0bb842fadca04991"/>
+
 <p>Low Prices You Can Trust Every Day!</p>
 <p> 12/21/22  10:27:15</p>
 </div>
@@ -51,6 +52,7 @@
 	p {
 		font-weight: 600;
 		display: block;
+		font-size:1em;
 	}
 	.g {
 		display:none;

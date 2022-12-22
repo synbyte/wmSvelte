@@ -5,7 +5,7 @@
 	import toggleHide from './Dialog.svelte';
 </script>
 
-<header class="bg-blue-600  py-2 px-2">
+<header class="bg-blue-600  py-3 px-2">
 	<div class="corner">
 	
 		<a href="https://kit.svelte.dev">
@@ -21,15 +21,16 @@
 </header>
 
 <style lang="scss">
+@import url("https://fonts.cdnfonts.com/css/myriad-pro");
 	@import './styles.scss';
 	header {
 		display: flex;
 		justify-content: space-between;
 		background:$wm-blue;
 		color:white;
-		font-weight:100;
+		font-weight:600;
 		font-size:1.5em;
-		font-family: 'Source Sans Pro', monoscpace;
+		font-family: 'Myriad Pro', monoscpace;
 	}
 
 
