@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"html5-qrcode": "^2.3.4",
 		"sass": "^1.57.1"
 	}
 }

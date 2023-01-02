@@ -1,5 +1,6 @@
 <script>
 import { select_multiple_value } from 'svelte/internal';
+import {fade} from 'svelte/transition'
 
     import {items, t} from './store';
     $: subtotal = $items.reduce((sum, item) => sum += item.price, 0)
@@ -11,7 +12,7 @@ import { select_multiple_value } from 'svelte/internal';
     <div class="row flex mx-auto">
         <ul class="name">
             {#each $items as item }
-            <p>{item.name}</p>
+            <p transition:fade>{item.name}</p>
             {/each}
 
         </ul>
@@ -36,8 +37,8 @@ import { select_multiple_value } from 'svelte/internal';
             <ul class="subtotal ">
                 <p>SUBTOTAL {subtotal}</p>
                 <p>TAX 0.15% {tax.toFixed(2)}</p>
-                <p>TOTAL {total}</p>
-                <p>WMP VISA TEND {total}</p>
+                <p>TOTAL {total.toFixed(2)}</p>
+                <p>WMP VISA TEND {total.toFixed(2)}</p>
             </ul>
             
 

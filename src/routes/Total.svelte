@@ -1,17 +1,24 @@
 <script>
-	
+	import {fade} from 'svelte/transition'
 	import Dialog from './Dialog.svelte'
-	import { items } from './store.js';
+	import { items,t } from './store.js';
 	export let visible = false;
-	export let upc;
-	export let price;
-	export let name;
-	export function toggleHide()  {
+	$: sold = $items.length;
+	export function iSold() {
+	    sold.push(sold += 1)
+	}
+	
+	let date = new Date();
+	let year = date.getFullYear()
+	let month = date.getMonth()+1;
+	let day = date.getDate()
+	var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+	let today = month+"/"+day+"/"+year
+		export function toggleHide()  {
         visible = !visible
     }
-	export function addItem() {
-        items.update(item => [...item,{name,upc,price}])
-    }
+    
+
 </script>
 
 <div  class="container">
@@ -28,22 +35,20 @@
 
 	<p>TERMINAL # SC0169278</p>
 	
-	<button on:click={toggleHide}>show</button>
 </div>
 <div style="text-align:center;" class="container flex mx-auto">
-<p style="font-size:2em;"># ITEMS SOLD 1</p>
+<p class='py-3' on:click={toggleHide} style="font-size:2em;"># ITEMS SOLD {sold}!</p>
 <p style="font-size:1em;">#TC 4736 4859 0048 1259</p>
-<img class="pb-3" style="width:80vw; height:50px;" src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fwww.pngkey.com%2Fpng%2Ffull%2F16-163338_barcode-without-numbers-png-clipart-black-and-white.png&sp=1671676488T8ae570b35378dea2437babfd0c98106d90b54889edaae0cc0bb842fadca04991"/>
+<img class="pb-3" style="width:80vw; height:50px;" src="https://pngimg.com/uploads/barcode/barcode_PNG4.png"/>
 
 <p>Low Prices You Can Trust Every Day!</p>
-<p> 12/21/22  10:27:15</p>
+<p> {today}  {current_time}</p>
 </div>
 {#if visible}
+<div transition:fade>
 <Dialog />
-<!--<div class="dialog shadow-md bg-red-200 "> <input bind:value={name} type="text">
-	<input bind:value={upc} type="number">
-	<input bind:value={price} type="number">
-	<button on:click={addItem}>add</button></div>-->
+    </div>
+
 	{/if}
 	{#if !visible}
 	<div class="g"></div>
