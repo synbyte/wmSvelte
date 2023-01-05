@@ -5,7 +5,6 @@
     
     export let upc = '';
     export let price = 0;
-    import sold from './Total.svelte'
     import visible from './Total.svelte'
     import toggleHide from './Total.svelte'
     import iSold from './Total.svelte'
@@ -21,7 +20,7 @@
     
     export function clr() {
         items.set([]);
-        sold = 0
+       
     }
     
     import { Html5Qrcode } from 'html5-qrcode'

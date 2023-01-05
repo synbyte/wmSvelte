@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-node": "^1.0.0",
 		"html5-qrcode": "^2.3.4",
 		"sass": "^1.57.1"
 	}
