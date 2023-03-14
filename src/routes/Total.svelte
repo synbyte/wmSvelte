@@ -8,11 +8,13 @@
 	    sold.push(sold += 1)
 	}
 	
+
 	let date = new Date();
+$: sec = date.getSeconds();
 	let year = date.getFullYear()
 	let month = date.getMonth()+1;
 	let day = date.getDate()
-	var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+	$: current_time = date.getHours()+":"+date.getMinutes()+":"+ sec;
 	let today = month+"/"+day+"/"+year
 		export function toggleHide()  {
         visible = !visible
