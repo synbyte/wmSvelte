@@ -4,10 +4,7 @@
 	import { items,t } from './store.js';
 	export let visible = false;
 	$: sold = $items.length;
-	export function iSold() {
-	    sold.push(sold += 1)
-	}
-	
+
 
 	let date = new Date();
 $: sec = date.getSeconds();
@@ -47,7 +44,7 @@ $: sec = date.getSeconds();
 <p> {today}  {current_time}</p>
 </div>
 {#if visible}
-<div transition:fade>
+<div class="dlog" transition:fade>
 <Dialog />
     </div>
 
@@ -67,6 +64,11 @@ $: sec = date.getSeconds();
 	}
 	input {
 		border:1px solid black;
+	}
+	.dlog {
+		display:flex;
+		margin:auto;
+		border:2px solid red;
 	}
 	.dialog {
 		position:absolute;

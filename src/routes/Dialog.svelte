@@ -5,10 +5,10 @@
     
     export let upc = '';
     export let price = 0;
-    import sold from './Total.svelte'
+
     import visible from './Total.svelte'
     import toggleHide from './Total.svelte'
-    import iSold from './Total.svelte'
+ 
     export function count() {
         sold + 1;
         
@@ -24,46 +24,7 @@
         sold = 0
     }
     
-    import { Html5Qrcode } from 'html5-qrcode'
-    import { onMount } from 'svelte'
-
-    let scanning = false
-
-    let html5Qrcode
-
-    onMount(init)
-
-    function init() {
-        html5Qrcode = new Html5Qrcode('reader')
-    }
-
-    function start() {
-        html5Qrcode.start(
-            { facingMode: 'environment' },
-            {
-                fps: 10,
-                qrbox: { width: 250, height: 250 },
-            },
-            onScanSuccess,
-            onScanFailure
-        )
-        scanning = true
-    }
-
-    async function stop() {
-        await html5Qrcode.stop()
-        scanning = false
-    }
-
-    function onScanSuccess(decodedText, decodedResult) {
-        alert(`Code matched = ${decodedText}`)
-        console.log(decodedResult)
-        upc=decodedText
-    }
-
-    function onScanFailure(error) {
-        console.warn(`Code scan error = ${error}`)
-    }
+   
    
 </script>
 <section>
@@ -74,12 +35,8 @@
         <input placeholder="ITEM PRICE" bind:value={price} type="number">
         <button on:click={addItem}>ADD</button>
         <button on:click={clr}>CLEAR</button>
-<reader id="reader"/>
-    {#if scanning}
-        <button on:click={stop}>stop</button>
-    {:else}
-        <button on:click={start}>start</button>
-    {/if}    
+
+      
 </div>
     {/if}
     {#if !visible}
@@ -103,10 +60,10 @@ main {
 section {
         display:block;
         position:absolute;
-        top:50%;
-	left:50%;
-        width:50vw;
-        height:50vh
+        top:30%;
+	left:0%;
+        width:100vw;
+        height:100vh;
     }
     .dialog {
         width:fit-content;
@@ -115,7 +72,8 @@ section {
         border-radius:15px;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        margin: auto;
+        justify-content: center;
     }
     input {
         border:1px solid black;
