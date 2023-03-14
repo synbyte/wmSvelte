@@ -5,5 +5,8 @@
 tasks:
   - init: npm install && npm run build
     command: npm run dev
-
+ports:
+  - port: 5173
+    onOpen: open-preview
+    description: Website preview
 
