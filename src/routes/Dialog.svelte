@@ -8,7 +8,7 @@
 
     import visible from './Total.svelte'
     import toggleHide from './Total.svelte'
- 
+    
     export function count() {
         sold + 1;
         
@@ -35,7 +35,7 @@
         <input placeholder="ITEM PRICE" bind:value={price} type="number">
         <button on:click={addItem}>ADD</button>
         <button on:click={clr}>CLEAR</button>
-
+        
       
 </div>
     {/if}
@@ -66,14 +66,16 @@ section {
         height:100vh;
     }
     .dialog {
-        width:fit-content;
+        width:75%;
         height:fit-content;
-        background: #2c2c2c;
-        border-radius:15px;
+        background: #abca;
+        border-radius:10px;
         display: flex;
         flex-direction: column;
         margin: auto;
+        padding:10%;
         justify-content: center;
+        backdrop-filter:blur(4px);
     }
     input {
         border:1px solid black;

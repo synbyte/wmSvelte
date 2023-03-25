@@ -36,7 +36,7 @@ $: sec = date.getSeconds();
 	
 </div>
 <div style="text-align:center;" class="container flex mx-auto">
-<p class='py-3' on:click={toggleHide} style="font-size:2em;"># ITEMS SOLD {sold}!</p>
+<p class='py-3' on:click={() => {visible = !visible}} style="font-size:2em;"># ITEMS SOLD {sold}!</p>
 <p style="font-size:1em;">#TC 4736 4859 0048 1259</p>
 <img class="pb-3" style="width:80vw; height:50px;" src="https://pngimg.com/uploads/barcode/barcode_PNG4.png"/>
 
@@ -74,7 +74,7 @@ $: sec = date.getSeconds();
 		position:absolute;
 		top:0;
 		width:100%;
-		
+		padding:10px;
 		border:1px solid black;
 		border-radius: 15px;
 
