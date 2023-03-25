@@ -6,8 +6,7 @@
     export let upc = '';
     export let price = 0;
 
-    import visible from './Total.svelte'
-    import toggleHide from './Total.svelte'
+    
     
     export function count() {
         sold + 1;
@@ -28,7 +27,7 @@
    
 </script>
 <section>
-    {#if visible}
+  
     <div class="container shadow-2xl dialog">
         <input placeholder="ITEM NAME" bind:value={name} type="text">
         <input placeholder="ITEM UPC" bind:value={upc} type="number">
@@ -38,9 +37,7 @@
         
       
 </div>
-    {/if}
-    {#if !visible}
-    {/if}
+   
 </section>
 
 <style lang="scss">

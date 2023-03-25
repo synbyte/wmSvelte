@@ -1,14 +1,13 @@
 <script>
 	import { page } from '$app/stores';
 	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
-	import toggleHide from './Total.svelte'	
+
 </script>
 
-<header on:click={toggleHide} class="bg-blue-600  py-3 px-2">
+<header class="bg-blue-600  py-3 px-2">
 	<div class="corner">
 	
-		<a href="#"on:click={toggleHide}>
+		<a href="#" >
 		<div  id="chevron">‹ Reciept Details</div>	
 		
 	</div>

@@ -3,15 +3,19 @@ import Header from "./Header.svelte";
 import List from "./List.svelte";
 import Total from "./Total.svelte";
 import Dialog from "./Dialog.svelte";
+import Toggle from "./Toggle.svelte";
+
+import { fade } from 'svelte/transition';
 </script>
 
 <section>
-<Header />
+<Header /><Toggle visible={false}><div transition:fade><Dialog/></div></Toggle>
 <div class="container text-center mx-auto px-3 ">
 <img class="pt-10 pb-4"
         id="blogo"
         src="https://i.ibb.co/vLHzdzM/pngfind-com-walmart-logo-png-572731.png"
       />
+    
 <p contenteditable="true">WAL*MART</p>
 <p contenteditable="true">VANCOUVER,WA</p>
       <p>360-258-2654 Mgr:TROY</p>
