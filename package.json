@@ -29,7 +29,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"dotenv": "^16.0.3",
 		"html5-qrcode": "^2.3.4",
+		"mongodb": "^5.1.0",
+		"mongoose": "^7.0.3",
 		"sass": "^1.57.1"
 	}
 }
