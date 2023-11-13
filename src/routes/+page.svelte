@@ -8,9 +8,10 @@ import Toggle from "./Toggle.svelte";
 import { fade } from 'svelte/transition';
 </script>
 
-<section>
-<Header /><Toggle visible={false}><div transition:fade><Dialog/></div></Toggle>
+<section>888
+<Header class="header" /><Toggle visible={false}><div transition:fade><Dialog/></div></Toggle>
 <div class="container text-center mx-auto px-3 ">
+<Toggle visible={false}><div transition:fade><Dialog/></div></Toggle>
 <img class="pt-10 pb-4"
         id="blogo"
         src="https://i.ibb.co/vLHzdzM/pngfind-com-walmart-logo-png-572731.png"
@@ -46,7 +47,9 @@ p {
   font-weight:600;
 text-decoration:none;
 }
-
+Header {
+position:fixed;
+top:0;}
 .container {
   display:flex;
   flex-direction: column;

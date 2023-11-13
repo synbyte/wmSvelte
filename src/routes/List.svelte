@@ -4,7 +4,7 @@ import {fade} from 'svelte/transition'
 
     import {items, t} from './store';
     $: subtotal = $items.reduce((sum, item) => sum += item.price, 0)
-    $: tax = subtotal * 0.15
+$: tax = subtotal * 0.15
     $: total = subtotal + tax
 
 </script>
@@ -35,7 +35,7 @@ import {fade} from 'svelte/transition'
     <div class="container ">
         <div class="total  flex mx-auto justify-end">
             <ul class="subtotal ">
-                <p>SUBTOTAL {subtotal}</p>
+                <p>SUBTOTAL {subtotal.toFixed(2)}</p>
                 <p>TAX 0.15% {tax.toFixed(2)}</p>
                 <p>TOTAL {total.toFixed(2)}</p>
                 <p>WMP VISA TEND {total.toFixed(2)}</p>
