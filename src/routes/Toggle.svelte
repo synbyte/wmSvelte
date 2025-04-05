@@ -7,6 +7,6 @@
 </script>
 
 <section>
-    <button on:click={toggleVisible}>|</button>
+    <button on:click={toggleVisible}></button>
 	{#if visible}<slot></slot>{/if}
 </section>

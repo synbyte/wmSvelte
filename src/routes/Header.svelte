@@ -1,13 +1,16 @@
 <script>
 	import { page } from '$app/stores';
 	import logo from '$lib/images/svelte-logo.svg';
-export let visible=false;
-        function toggleVisible() {
-                visible = !visible;
-        }
+	import { createEventDispatcher } from 'svelte';
+	
+	const dispatch = createEventDispatcher();
+	
+	function handleClick() {
+		dispatch('headerClick');
+	}
 </script>
 
-<header class="bg-blue-600  py-3 px-2">
+<header class="bg-blue-600  py-3 px-2" on:click={handleClick}>
 	<div class="corner">
 	
 		<a href="#" >
