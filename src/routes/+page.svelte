@@ -17,9 +17,9 @@ import { fade } from 'svelte/transition';
         src="https://i.ibb.co/vLHzdzM/pngfind-com-walmart-logo-png-572731.png"
       />
     
-<p contenteditable="true">WAL*MART</p>
+<p contenteditable="false">WAL*MART</p>
 <p contenteditable="true">VANCOUVER,WA</p>
-      <p>360-258-2654 Mgr:TROY</p>
+      <p contenteditable="true">360-258-2654 Mgr:TROY</p>
       <p>ST# 05461 OP# 001776 TE# 67 TR# 04809</p>
       
 </div>
