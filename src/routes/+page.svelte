@@ -13,9 +13,10 @@ import { fade } from 'svelte/transition';
 <div class="container text-center mx-auto px-3 ">
 <Toggle visible={false}><div transition:fade><Dialog/></div></Toggle>
 <img class="pt-10 pb-4"
-        id="blogo"
-        src="https://i.ibb.co/vLHzdzM/pngfind-com-walmart-logo-png-572731.png"
-      />
+    id="blogo"
+    src="/wm_logo.png"
+    alt="Walmart Logo"
+/>
     
 <p contenteditable="false">WAL*MART</p>
 <p contenteditable="true">VANCOUVER,WA</p>
