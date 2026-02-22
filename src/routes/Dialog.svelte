@@ -111,11 +111,12 @@ section {
         position: absolute;
         top: 10px;
         right: 10px;
-        background: none;
+        background: white;
         border: none;
-        font-size: 24px;
+        font-size: 32px;
+        font-weight: 600;
         cursor: pointer;
-        color: #333;
+        color: #131313ff;
         padding: 0;
         width: 30px;
         height: 30px;

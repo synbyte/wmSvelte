@@ -55,8 +55,8 @@
 
   // Pan-Zoom Logic
   function panzoom(node) {
-    let scale = 1;
-    let x = 0;
+    let scale = 0.9;
+    let x = typeof window !== 'undefined' ? window.innerWidth * 0.05 : 0;
     let y = 0;
     let pointers = new Map();
     let initialDist = 0;
@@ -73,6 +73,9 @@
     function update() {
       node.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
     }
+
+    // Initialize position
+    update();
 
     function onDown(e) {
       pointers.set(e.pointerId, e);
@@ -146,7 +149,7 @@
 <Header on:headerClick={handleHeaderClick} />
 
 <Toggle visible={dialogVis}>
-  <div class="dialog-overlay" transition:fade>
+  <div class="dialog-overlay" transition:fade={{ duration: 150 }}>
     <Dialog on:close={handleDialogClose}/>
   </div>
 </Toggle>
