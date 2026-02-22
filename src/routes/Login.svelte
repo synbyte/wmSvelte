@@ -1,53 +1,87 @@
 <script>
   import { fade } from 'svelte/transition';
-  import { goto } from '$app/navigation';
+  import { enhance } from '$app/forms';
   
-  let username = '';
+  export let form;
+  
+  let isRegistering = false;
+  let username = form?.username || '';
   let password = '';
-  let error = '';
-  
-  function handleLogin() {
-    if (username === 'krxn0s' && password === 'FUCKWALMART') {
-      goto('/main');
-    } else {
-      error = 'NOPE!';
-    }
-  }
+  let loading = false;
 </script>
 
 <div class="login-container" transition:fade>
   <div class="login-box">
-    <img 
-      class="logo"
-      src="/wm_logo.png" 
-      alt="Walmart Logo" 
-    />
+    <div class="emoji-logo">🖕</div>
+
+    <h2 class="prominent-header">{isRegistering ? 'Create Account' : 'Login'}</h2>
     
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input 
-        type="text" 
-        id="username" 
-        bind:value={username} 
-        placeholder="Enter username"
-      />
-    </div>
-    
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input 
-        type="password" 
-        id="password" 
-        bind:value={password} 
-        placeholder="Enter password"
-      />
-    </div>
-    
-    {#if error}
-      <div class="error">{error}</div>
-    {/if}
-    
-    <button on:click={handleLogin}>LOGIN</button>
+    <form 
+      method="POST" 
+      action={isRegistering ? '?/register' : '?/login'} 
+      use:enhance={() => {
+        loading = true;
+        return async ({ update, result }) => {
+          loading = false;
+          if (result.type === 'success' && isRegistering) {
+            isRegistering = false;
+          }
+          update();
+        };
+      }}
+    >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          name="username"
+          id="username" 
+          bind:value={username} 
+          placeholder="Enter username"
+          required
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          name="password"
+          id="password" 
+          bind:value={password} 
+          placeholder="Enter password"
+          required
+        />
+      </div>
+      
+      {#if form?.incorrect}
+        <div class="error">NOPE! Invalid credentials.</div>
+      {/if}
+
+      {#if form?.exists}
+        <div class="error">Username already exists!</div>
+      {/if}
+
+      {#if form?.success}
+        <div class="success">Account created! You can now login.</div>
+      {/if}
+      
+      <button type="submit" disabled={loading}>
+        {loading ? 'Processing...' : (isRegistering ? 'REGISTER' : 'LOGIN')}
+      </button>
+
+      <button 
+        type="button" 
+        class="toggle-btn"
+        on:click={() => isRegistering = !isRegistering}
+      >
+        {isRegistering ? 'Already have an account? Login' : "Don't have an account? Register"}
+      </button>
+    </form>
+
+    <p class="disclaimer">
+      This app is for educational purposes ONLY, the creator is not responsible for how it might be used.
+    </p>
   </div>
 </div>
 
@@ -71,21 +105,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .logo {
-    width: 85%;
-    margin-bottom: 2rem;
+
+    .emoji-logo {
+      font-size: 8rem;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    .prominent-header {
+      margin-bottom: 2rem;
+      color: #0071dc;
+      font-size: 2.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
   }
   
   .form-group {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     
     label {
       display: block;
       margin-bottom: 0.5rem;
       font-weight: 600;
+      color: #444;
     }
     
     input {
@@ -94,6 +139,7 @@
       border: 1px solid #ced4da;
       border-radius: 4px;
       font-size: 1rem;
+      box-sizing: border-box;
     }
   }
   
@@ -108,16 +154,58 @@
     cursor: pointer;
     margin-top: 1rem;
     width: 100%;
+    transition: background-color 0.2s;
+    
+    &:hover:not(:disabled) {
+      background-color: #005cb8;
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  .toggle-btn {
+    background: none;
+    color: #0071dc;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    border: none;
+    cursor: pointer;
     
     &:hover {
-      background-color: #005cb8;
+      color: #005cb8;
+      background: none;
     }
   }
   
   .error {
-    color: red;
-    margin: 0.5rem 0;
+    color: #d93025;
+    margin-bottom: 1rem;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 0.95rem;
+    text-align: center;
+    width: 100%;
   }
-</style> 
+
+  .success {
+    color: #188038;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .disclaimer {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    color: #999;
+    text-align: center;
+    line-height: 1.4;
+    padding: 0 1rem;
+    font-style: italic;
+  }
+</style>

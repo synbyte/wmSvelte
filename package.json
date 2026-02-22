@@ -31,12 +31,16 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@upstash/redis": "^1.36.2",
+		"@vercel/kv": "^3.0.0",
+		"bcryptjs": "^3.0.3",
 		"dotenv": "^16.0.3",
 		"html5-qrcode": "^2.3.4",
 		"mongodb": "^5.1.0",
 		"mongoose": "^7.0.3",
 		"quagga": "^0.12.1",
 		"sass": "^1.57.1",
+		"vercel": "^50.22.1",
 		"vite-plugin-pwa": "^1.0.0"
 	}
 }
