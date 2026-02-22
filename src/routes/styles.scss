@@ -1,27 +1,30 @@
-
 @import '@fontsource/fira-mono';
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300&family=Courier+Prime&display=swap');
-$wm-blue: #0071ce;
+$wm-blue: #0053E2;
+
 :root {
 	font-family: 'Courier Prime', monospace;
-	font-size:0.8rem;
+
 }
+
 p {
-	
-	color:black;
+
+	color: black;
 	font-family: 'Courier Prime', monospace;
-	font-weight:600;
-	font-size:1em;
-  }
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
 h1,
 h2,
 p {
 	font-weight: 400;
+	font-size: 1.2rem;
 }
 
 p {
-	line-height: 1.5;
+	line-height: 1.05;
 }
 
 a {
@@ -89,4 +92,3 @@ button:focus:not(:focus-visible) {
 	width: 1px;
 	white-space: nowrap;
 }
-

@@ -4,15 +4,15 @@
     
         import {items, t} from './store';
         $: subtotal = $items.reduce((sum, item) => sum += item.price, 0)
-    $: tax = subtotal * 0.15
+    $: tax = subtotal * 0.088
         $: total = subtotal + tax
     
     </script>
-    <div class="container mx-auto ">
-        <div class="row flex mx-auto">
+    <div class="container mx-auto  ">
+        <div class="row flex mx-auto ">
             <ul class="name">
                 {#each $items as item }
-                <p contenteditable="true" transition:fade>{item.name}</p>
+                <p class="uppercase" contenteditable="true" transition:fade>{item.name}</p>
                 {/each}
     
             </ul>
@@ -36,7 +36,7 @@
             <div class="total  flex mx-auto justify-end">
                 <ul class="subtotal ">
                     <p>SUBTOTAL {subtotal.toFixed(2)}</p>
-                    <p>TAX 0.15% {tax.toFixed(2)}</p>
+                    <p>TAX   8.800 % {tax.toFixed(2)}</p>
                     <p>TOTAL {total.toFixed(2)}</p>
                     <p>WMP VISA TEND {total.toFixed(2)}</p>
                 </ul>
@@ -49,15 +49,16 @@
         @import './styles.scss';
         p{
             font-weight: 600;
-        }
-    .container {
         
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        width:100vw;
-    }
+        }
+    	.container {
+		width: 100%;
+		margin: auto;
+		display: block;
+		align-items: flex-start;
+		text-align: start;
+		font-size: 1.2rem;
+	}
     .subtotal {
         display:flex;
         flex-direction: column;
@@ -66,12 +67,12 @@
     
     }
     .total {
-        width:80vmin;
+        width:100vmin;
         display:flex;
     
     }
     .row {
-        width:80vmin;
+        width:100vmin;
         display:flex;
         justify-content: space-between;
     }
