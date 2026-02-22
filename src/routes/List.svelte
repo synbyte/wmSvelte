@@ -1,5 +1,5 @@
 <script>
-    import { select_multiple_value } from 'svelte/internal';
+    
     import {fade} from 'svelte/transition'
     
         import {items, t} from './store';
