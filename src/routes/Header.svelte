@@ -35,11 +35,15 @@ width:100vw;
 		background:$wm-blue;
 		color:white;
 		font-weight:600;
-		font-size:1.5em;
+		font-size:1.0em;
 		font-family: 'Myriad Pro', monoscpace;
 position:fixed;
 top:0;
-left:0;	}
+left:0;
+z-index: 100;
+height: 60px;
+align-items: center;
+}
 
 
 

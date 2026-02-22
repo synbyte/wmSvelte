@@ -1,17 +1,17 @@
 {
-	"short_name": "Fuck Walmart",
-	"name": "Fuck Walmart",
-	"start_url": "/",
-	"icons": [
-		{
-			"src": "logo_512.png",
-			"type": "image/png",
-			"sizes": "512x512"
-		}
-	],
-	"background_color": "#0071ce",
-	"display": "standalone",
-	"scope": "/",
-	"theme_color": "#0071ce",
-	"description": "I have no idea what this is or what its for.."
+  "short_name": "Fuck Walmart",
+  "name": "Fuck Walmart",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "logo_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#0071ce",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#0071ce",
+  "description": "No clue what this apps for.."
 }
