@@ -12,9 +12,10 @@
 
 <div class="login-container" transition:fade>
   <div class="login-box">
-    <div class="emoji-logo">🖕</div>
-
-    <h2 class="prominent-header">{isRegistering ? 'Create Account' : 'Login'}</h2>
+    <div class="rounded-3xl border-2 border-black overflow-hidden mb-10">
+  <img src="/epic_finger.png" class="scale-110 block" />
+</div>
+    
     
     <form 
       method="POST" 
@@ -78,10 +79,12 @@
         {isRegistering ? 'Already have an account? Login' : "Don't have an account? Register"}
       </button>
     </form>
-
-    <p class="disclaimer">
-      This app is for educational purposes ONLY, the creator is not responsible for how it might be used.
-    </p>
+    <div class="bg-slate-100 p-1 rounded-lg">
+      <p class="disclaimer not-italic underline underline-offset-4">DISCLAIMER</p>
+      <p class="disclaimer">
+         This app is for educational purposes ONLY, the creator is not responsible for how it might be used.
+      </p>
+    </div>
   </div>
 </div>
 
@@ -174,11 +177,10 @@
     text-decoration: underline;
     border: none;
     cursor: pointer;
-    
-    &:hover {
-      color: #005cb8;
-      background: none;
+    &:hover:not(:disabled) {
+      background-color: #ffffffff;
     }
+   
   }
   
   .error {
@@ -200,12 +202,14 @@
   }
 
   .disclaimer {
-    margin-top: 2rem;
     font-size: 0.75rem;
     color: #999;
     text-align: center;
     line-height: 1.4;
     padding: 0 1rem;
     font-style: italic;
+  }
+  .not-italic {
+    font-style: normal;
   }
 </style>
