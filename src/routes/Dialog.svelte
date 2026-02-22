@@ -1,13 +1,13 @@
 <script>
 	import { createEventDispatcher, onMount, onDestroy } from 'svelte';
 	import { items, t } from './store.js';
-	import { Html5QrcodeScanner } from 'html5-qrcode';
+	import { Html5QrcodeScanner, Html5QrcodeScanType } from 'html5-qrcode';
 
 	const dispatch = createEventDispatcher();
 	
 	export let name = '';
 	export let upc = generateRandomUPC();
-	export let price = 0;
+	export let price = null;
 
 	let scanner = null;
     let isScanning = false;
@@ -31,8 +31,8 @@
 	}
     
     function addItem(){
-        items.update(item => [...item,{name,upc,price}]);
-        // Reset or close after add if desired
+        const itemPrice = price === null || price === undefined ? 0 : price;
+        items.update(item => [...item, { name, upc, price: itemPrice }]);
     }
     
     function clr() {
@@ -51,11 +51,16 @@
         isScanning = true;
         // Small delay to ensure the div is rendered
         setTimeout(() => {
-            scanner = new Html5QrcodeScanner("reader", { 
+            const config = { 
                 fps: 10, 
                 qrbox: {width: 250, height: 150},
-                showTorchButtonIfSupported: true
-            }, false);
+                showTorchButtonIfSupported: true,
+                supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA],
+                videoConstraints: {
+                    facingMode: "environment"
+                }
+            };
+            scanner = new Html5QrcodeScanner("reader", config, false);
             scanner.render(onScanSuccess, onScanFailure);
         }, 100);
     }
@@ -83,14 +88,14 @@
 
     onDestroy(() => {
         if (scanner) {
-            scanner.clear();
+            scanner.clear().catch(() => {});
         }
     });
 </script>
 
 <section>
     <div class="container shadow-2xl dialog">
-        <button class="close-button" on:click={handleClose}>×</button>
+        <button class="close-button shadow-md" on:click={handleClose}>×</button>
         
         <div class="form-group">
             <input placeholder="ITEM NAME" bind:value={name} type="text">
@@ -110,8 +115,8 @@
         </div>
 
         <div class="actions">
-            <button class="primary" on:click={addItem}>ADD ITEM</button>
-            <button class="secondary" on:click={clr}>CLEAR ALL</button>
+            <button class="primary btn-elevated" on:click={addItem}>ADD ITEM</button>
+            <button class="secondary btn-elevated" on:click={clr}>CLEAR ALL</button>
         </div>
     </div>
 </section>
@@ -148,7 +153,7 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
-        margin-top: 20px;
+        margin-top: 30px;
     }
 
     .upc-input-wrapper {
@@ -166,71 +171,103 @@
         margin: 10px 0;
         border-radius: 8px;
         overflow: hidden;
+        :global(button) {
+            /* Style library-generated buttons to look more consistent */
+            padding: 8px 16px;
+            border-radius: 6px;
+            background: #eee;
+            border: 1px solid #ccc;
+            margin: 5px;
+            font-weight: 500;
+        }
     }
 
     input {
-        padding: 12px;
+        padding: 14px;
         border: 1px solid #ddd;
         border-radius: 8px;
         font-size: 1rem;
         width: 100%;
         box-sizing: border-box;
+        background: #fcfcfc;
 
         &:focus {
             outline: 2px solid $wm-blue;
             border-color: transparent;
+            background: white;
         }
     }
 
     .actions {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        margin-top: 20px;
+        gap: 10px;
+        margin-top: 24px;
     }
 
     button {
-        padding: 12px;
+        padding: 14px;
         border-radius: 8px;
-        font-weight: 600;
+        font-weight: 700;
         cursor: pointer;
         border: none;
-        transition: opacity 0.2s;
+        transition: transform 0.1s, box-shadow 0.1s;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
 
         &:active {
-            opacity: 0.8;
+            transform: scale(0.98);
+        }
+    }
+
+    .btn-elevated {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        
+        &:active {
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
     }
 
     .primary {
         background: $wm-blue;
         color: white;
+        &:hover { background: darken($wm-blue, 5%); }
     }
 
     .secondary {
-        background: #eee;
+        background: #f0f0f0;
         color: #333;
+        border: 1px solid #ddd;
+        &:hover { background: #e8e8e8; }
     }
 
     .scan-btn {
         background: #333;
         color: white;
-        padding: 0 15px;
+        padding: 0 20px;
+        &:hover { background: #444; }
     }
 
     .close-button {
         position: absolute;
         top: 12px;
         right: 12px;
-        background: #f5f5f5;
+        background: #ffffffff;
         font-size: 24px;
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #666;
+        color: #333;
+        border: 1px solid #ecececff;
+        
+        
+        &:active {
+            background: #eee;
+        }
     }
 </style>
 
