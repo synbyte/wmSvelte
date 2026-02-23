@@ -9,8 +9,8 @@ export async function handle({ event, resolve }) {
         event.locals.user = session;
     }
 
-    // Protect the /main route
-    if (!session && event.url.pathname.startsWith('/main')) {
+    // Protect routes
+    if (!session && (event.url.pathname.startsWith('/main') || event.url.pathname.startsWith('/admin'))) {
         throw redirect(303, '/');
     }
 

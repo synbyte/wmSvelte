@@ -25,6 +25,11 @@ export const actions = {
             return fail(400, { username, incorrect: true });
         }
 
+        // Update lastLogin timestamp
+        await redis.hset(`user:${username}`, {
+            lastLogin: new Date().toISOString()
+        });
+
         // Set session cookie
         cookies.set('session', username, {
             path: '/',
@@ -57,7 +62,8 @@ export const actions = {
         await redis.hset(`user:${username}`, {
             username,
             password: hashedPassword,
-            createdAt: new Date().toISOString()
+            createdAt: new Date().toISOString(),
+            lastLogin: new Date().toISOString()
         });
 
         return { success: true };

@@ -48,7 +48,9 @@
 
 	<p>Low Prices You Can Trust Every Day!</p>
 	<br/>
-	<p>{today} {current_time}</p>
+	<a href="/admin" style="text-decoration: none; color: inherit;">
+		<p>{today} {current_time}</p>
+	</a>
 </div>
 
 
