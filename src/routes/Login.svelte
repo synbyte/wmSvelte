@@ -12,9 +12,9 @@
 
 <div class="login-container" transition:fade>
   <div class="login-box">
-    <div class="rounded-3xl border-2 border-black overflow-hidden mb-10">
-  <img src="/epic_finger.png" class="scale-110 block" />
-</div>
+    
+  <img src="/logo_512.png" class="scale-75 block drop-shadow-xl" />
+
     
     
     <form 
@@ -80,9 +80,9 @@
       </button>
     </form>
     <div class="bg-slate-100 p-1 rounded-lg">
-      <p class="disclaimer not-italic underline underline-offset-4">DISCLAIMER</p>
-      <p class="disclaimer">
-         This app is for educational purposes ONLY, the creator is not responsible for how it might be used.
+      <p class="disclaimer not-italic underline underline-offset-2">DISCLAIMER</p>
+      <p class="disclaimer uppercase not-italic tracking-wide">
+        This app is for educational purposes only. The creator assumes no responsibility or liability for any misuse or damages arising from its use. Use at your own risk.
       </p>
     </div>
   </div>
@@ -202,7 +202,7 @@
   }
 
   .disclaimer {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     color: #999;
     text-align: center;
     line-height: 1.4;
