@@ -1,8 +1,8 @@
-import { KV_REST_API_URL, KV_REST_API_TOKEN } from "$env/static/private";
+import { env } from '$env/dynamic/private';
 import { Redis } from '@upstash/redis';
 
-// Initialize Redis exactly as the guide suggests
+// Initialize Redis with dynamic env variables to support prefixed keys
 export const redis = new Redis({
-    url: KV_REST_API_URL || "",
-    token: KV_REST_API_TOKEN || ""
+    url: env.walmart_KV_REST_API_URL || env.KV_REST_API_URL || "",
+    token: env.walmart_KV_REST_API_TOKEN || env.KV_REST_API_TOKEN || ""
 });
